@@ -1,0 +1,1098 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="cocoapods," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="我是一颗小小的石头" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="近期想把代码开源到cocoapods，放一些自己的工具类，于是就去研究了一下代码是怎么开源到cocoapods的，发现里面的坑还不少">
+<meta name="keywords" content="cocoapods">
+<meta property="og:type" content="article">
+<meta property="og:title" content="把代码开源到cocoapods">
+<meta property="og:url" content="http://rocksky.me/2016/12/25/2016-12-25codeopensource/index.html">
+<meta property="og:site_name" content="我是一颗小小的石头">
+<meta property="og:description" content="近期想把代码开源到cocoapods，放一些自己的工具类，于是就去研究了一下代码是怎么开源到cocoapods的，发现里面的坑还不少">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://opmmnosdy.bkt.clouddn.com/codeopensource01.png">
+<meta property="og:image" content="http://opmmnosdy.bkt.clouddn.com/codeopensource02.png">
+<meta property="og:updated_time" content="2017-07-28T00:41:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="把代码开源到cocoapods">
+<meta name="twitter:description" content="近期想把代码开源到cocoapods，放一些自己的工具类，于是就去研究了一下代码是怎么开源到cocoapods的，发现里面的坑还不少">
+<meta name="twitter:image" content="http://opmmnosdy.bkt.clouddn.com/codeopensource01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'B3Z9QGBKUY',
+      apiKey: '3e128e47b1d944db2bc5aea5bd932897',
+      indexName: 'rockblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"请输入关键字","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://rocksky.me/2016/12/25/2016-12-25codeopensource/"/>
+
+
+
+
+
+  <title>把代码开源到cocoapods | 我是一颗小小的石头</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    <script>
+	(function(){
+		if(''){
+			if (prompt('请输入小石头给你的密码，没有的话找小石头要','') !== ''){
+				alert('恭喜你答错啦！');
+				history.back();
+			}
+		}
+	})();
+    </script>
+
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">我是一颗小小的石头</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://rocksky.me/2016/12/25/2016-12-25codeopensource/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SKY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我是一颗小小的石头">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">把代码开源到cocoapods</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-25T10:11:34+08:00">
+                2016-12-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/代码工具/" itemprop="url" rel="index">
+                    <span itemprop="name">代码工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2016/12/25/2016-12-25codeopensource/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2016/12/25/2016-12-25codeopensource/" class="leancloud_visitors" data-flag-title="把代码开源到cocoapods">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>近期想把代码开源到cocoapods，放一些自己的工具类，于是就去研究了一下代码是怎么开源到cocoapods的，发现里面的坑还不少<br><a id="more"></a></p>
+<h3 id="创建github公共仓库"><a href="#创建github公共仓库" class="headerlink" title="创建github公共仓库"></a>创建github公共仓库</h3><ul>
+<li>首先去你的github创建一个公共仓库，如下图所示：<img src="http://opmmnosdy.bkt.clouddn.com/codeopensource01.png" alt=""></li>
+<li>把项目克隆到本地后（可以用sourcetree也可以直接用终端），cd到克隆下来的文件夹下，创建一个工程到当前文件夹下，如下图：<img src="http://opmmnosdy.bkt.clouddn.com/codeopensource02.png" alt=""></li>
+<li>执行命令（一定要与开源代码的文件夹同名，否则可能会出各种奇葩的错），然后会看到文件夹中多了一个.podspec后缀的文件</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pod spec create 你开源到pod的文件名</div></pre></td></tr></table></figure>
+<ul>
+<li>vim .podspec后缀的文件，文件内容如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">Pod::Spec.new do |s|</div><div class="line">  s.name         = &quot;skydatemaster&quot;//开源项目名 要与开源代码的文件夹同名</div><div class="line">  s.version      = &quot;1.0.3&quot;//开源项目版本</div><div class="line">  s.summary      = &quot;A short with me&quot;//简单的描述</div><div class="line">  s.homepage     = &quot;https://github.com/skyrock90/skytest&quot;//可以写上项目的主页</div><div class="line">  s.license      = &quot;MIT&quot;//开原协议</div><div class="line">  s.author       = &#123; &quot;yangdongdong&quot; =&gt; &quot;yangdongdong@yaolaivip.com&quot; &#125;//作者</div><div class="line">  s.platform     = :ios, &quot;7.0&quot;// 项目支持的最低版本</div><div class="line">  s.source       = &#123; :git =&gt; &quot;https://github.com/skyrock90/skytest.git&quot;, :tag =&gt; s.version&#125;//源代码的文件路径</div><div class="line">  s.source_files = &apos;skydatemaster/**/*.&#123;h,m&#125;&apos;// 开源的文件路径（这个坑好大，后面讲）</div><div class="line">  s.requires_arc = true</div><div class="line">  s.framework  	 = &quot;UIKit&quot;// 用到的框架</div><div class="line">  #s.dependency &quot;JSONKit&quot;, &quot;~&gt; 1.4&quot;// 依赖的第三方库</div><div class="line">end</div></pre></td></tr></table></figure>
+<ul>
+<li>至此，可以吧你新建的项目提交到github是github</li>
+<li>在当前文件件下给项目打上标签即版本号，注意标签的版本号必须与.podspec后缀的文件中的版本号相同，执行命令行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git tag 1.0.2（本地版本）</div><div class="line">$ git push --tags（打上远程版本）</div></pre></td></tr></table></figure>
+<ul>
+<li>验证podspec文件了，执行命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pod spec lint xxx.podspec（替换成你的文件名）</div></pre></td></tr></table></figure>
+<ul>
+<li>验证通过的话会出现如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">SKYdeMacBook-Pro:skytest sky$ pod spec lint skydatemaster.podspec</div><div class="line"></div><div class="line"> -&gt; skydatemaster (1.0.3)</div><div class="line"></div><div class="line">Analyzed 1 podspec.</div><div class="line"></div><div class="line">skydatemaster.podspec passed validation.//这里显示pass</div><div class="line"></div><div class="line">SKYdeMacBook-Pro:skytest sky$</div></pre></td></tr></table></figure>
+<ul>
+<li>如果出现错误或警告，就代表没通过，别急去下面找找看有没有和你同样的问题，没有的话可以发我邮件skyrock90@126.com</li>
+<li>没有验证通过的,重新配置文件后需要删除原来的tag,重新打tag，验证</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ git tag -d 1.0.2          //删除本地tag   </div><div class="line">$ git push origin -d 1.0.2  // 删除远程库tag</div></pre></td></tr></table></figure>
+<ul>
+<li>确保验证通过后，开始提交到cocoapods，如果你是第一次提交需要先注册，执行以下命令,执行完后顺利的话你邮箱应该会收到一封邮件，戳进去验证，回来</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pod trunk register 这里写邮箱 &apos;这里起个名字&apos; --description=&apos; 这里写描述&apos;</div></pre></td></tr></table></figure>
+<ul>
+<li>提交项目到cocoapods，执行命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod trunk push xxx.podspec</div></pre></td></tr></table></figure>
+<ul>
+<li>成功后看到如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">🎉  Congrats</div><div class="line"></div><div class="line"> 🚀  skydatemaster (1.0.2) successfully published</div><div class="line"> 📅  Dec 24th, 23:06</div><div class="line"> 🌎  https://cocoapods.org/pods/skydatemaster</div><div class="line"> 👍  Tell your friends!</div></pre></td></tr></table></figure>
+<ul>
+<li>以为此时完事大吉了？错！大错特错，当我想 pod search  skydatemaster的时候发现,我根本搜不到</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pod search skydatemaster</div><div class="line">[!] Unable to find a pod with name, author, summary, or description matching `skydatemaster`</div></pre></td></tr></table></figure>
+<ul>
+<li>这他妈又是啥错？心中又默念了100遍“放弃吧、、、”</li>
+<li>想了想人生下来就是来受苦的，挺挺我的老腰继续干吧，首先想到的升级我的cocoapods</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo gem install cocoapods</div></pre></td></tr></table></figure>
+<ul>
+<li>结果再次掉坑，又他妈报错，真是坑连坑，逼人疯啊，那就爬坑吧。换了更新命令</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo gem install -n /usr/local/bin</div></pre></td></tr></table></figure>
+<ul>
+<li>执行下面命令，查看pod版本，咦！可中了，急死我哩个天嘚了,发现版本已更到最新</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pod --version</div></pre></td></tr></table></figure>
+<ul>
+<li>这下不会可以搜到我的开源项目了吧，哈哈！又高兴早了，依然是那样一动不动，一如既往的搜不到</li>
+<li>是时候放大招了，首先更新pod库，执行 </li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pod setup</div></pre></td></tr></table></figure>
+<ul>
+<li>然后，cd到这个文件夹下<code>cd ~/Library/Caches/CocoaPods/</code>，ls看到有search_index.json这样的文件，执行<code>rm search_index.json</code>，删除后重新<code>pod search</code> ,(会重新生成这个文件)perfect！梦中的你终于出现在我眼前了</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-&gt; skydatemaster (1.0.3)</div><div class="line">   A short with me</div><div class="line">   pod &apos;skydatemaster&apos;, &apos;~&gt; 1.0.3&apos;</div><div class="line">   - Homepage: https://github.com/skyrock90/skytest</div><div class="line">   - Source:   https://github.com/skyrock90/skytest.git</div><div class="line">   - Versions: 1.0.3, 1.0.2 [master repo]</div></pre></td></tr></table></figure>
+<ul>
+<li>直接废去这个pod</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod trunk deprecate 项目名</div></pre></td></tr></table></figure>
+<ul>
+<li>删除pod的某个版本</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pod trunk delete +名 +版本1.0.0</div></pre></td></tr></table></figure>
+<h3 id="过程中遇到的坑"><a href="#过程中遇到的坑" class="headerlink" title="过程中遇到的坑"></a>过程中遇到的坑</h3><ul>
+<li>验证没有通过，各种尝试后还报下面的错，接近奔溃的边缘，只留了一丝希望</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">-&gt; datepicker (1.0.0)</div><div class="line">    - ERROR | [iOS] file patterns: The `source_files` pattern did not match any file.</div><div class="line"></div><div class="line">Analyzed 1 podspec.</div><div class="line"></div><div class="line">[!] The spec did not pass validation, due to 1 error.</div><div class="line">[!] The validator for Swift projects uses Swift 3.0 by default, if you are using a different version of swift you can use a `.swift-version` file to set the version for your Pod. For example to use Swift 2.3, run: </div><div class="line">    `echo &quot;2.3&quot; &gt; .swift-version`.</div></pre></td></tr></table></figure>
+<ul>
+<li>可以看出上面一直报source_files的错说明.podspec文件的source_files配置一直是不对的，注意看这里<code>s.source_files  = &#39;skydatemaster/**/*.{h,m}&#39;</code>// skydatemaster的名字必须是你开源代码存放的文件夹名 而且这个文件件要与. podspec文件在同一级文件目录下，这是个好大的坑，坑到你心理默念“放弃吧！放弃吧！。。。。”</li>
+</ul>
+<h3 id="更新cocoapods的开源库"><a href="#更新cocoapods的开源库" class="headerlink" title="更新cocoapods的开源库"></a>更新cocoapods的开源库</h3><ul>
+<li>配置github正确的ssh</li>
+<li>git clone 克隆github上开源的项目</li>
+<li>修改代码和SKYTools.podspec配置文件（版本号）</li>
+<li>将修改的代码更新到github的远程仓库</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git  add .  </div><div class="line">git commit -m&quot;添加开源许可和podspec&quot;   </div><div class="line">git push origin master</div></pre></td></tr></table></figure>
+<ul>
+<li>添加版本号<code>git tag -a 1.0.1 -m&quot;version 1.0.1&quot;</code></li>
+<li>查看tag是否添加成功<code>git tag</code></li>
+<li>将本地的添加的tag同步到远程仓库<code>git push --tags</code></li>
+<li>检查pod trunk 信息<code>pod trunk me</code></li>
+<li>验证项目<code>pod spec lint SKYTools.podspec --verbose --use-libraries</code></li>
+<li>将项目push到cocoapods上<code>pod trunk push SKYTools.podspec</code>  </li>
+<li>提交成功后搜索<code>pod search skytools</code>发现没有搜索到最新的版本，执行<code>rm ~/Library/Caches/CocoaPods/search_index.json</code>重新pod search 开源项目</li>
+<li>如果还是搜索不到就执行<code>更新pod库:pod setup</code></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/cocoapods/" rel="tag"># cocoapods</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/10/2016-12-10gitsetting/" rel="next" title="git版本控制的配置">
+                <i class="fa fa-chevron-left"></i> git版本控制的配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/10/2017-03-10wechatapp01/" rel="prev" title="微信小程序学习之--01">
+                微信小程序学习之--01 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="SKY" />
+          <p class="site-author-name" itemprop="name">SKY</p>
+           
+              <p class="site-description motion-element" itemprop="description">SKY | iOS | develop | 移动</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/skyrock90" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3124928107?is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建github公共仓库"><span class="nav-number">1.</span> <span class="nav-text">创建github公共仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#过程中遇到的坑"><span class="nav-number">2.</span> <span class="nav-text">过程中遇到的坑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更新cocoapods的开源库"><span class="nav-number">3.</span> <span class="nav-text">更新cocoapods的开源库</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SKY</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "0e863791628e4ea384c811d1cb509425",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("uMSsGE1N7o7xR0ddmluiyocN-gzGzoHsz", "GQJnywX1H3dn7BuHJB41cmAu");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
