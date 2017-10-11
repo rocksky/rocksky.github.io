@@ -1,0 +1,1105 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Tools," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="我是一颗小小的石头" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="掌握一门语言最快捷的方法是首先了解他的语法，然后集中时间快速学习这门语言，每天写2个以上小项目">
+<meta name="keywords" content="Tools">
+<meta property="og:type" content="article">
+<meta property="og:title" content="技术点总结--01">
+<meta property="og:url" content="http://rocksky.me/2017/07/10/2017-07-10skill01/index.html">
+<meta property="og:site_name" content="我是一颗小小的石头">
+<meta property="og:description" content="掌握一门语言最快捷的方法是首先了解他的语法，然后集中时间快速学习这门语言，每天写2个以上小项目">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-11T07:29:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="技术点总结--01">
+<meta name="twitter:description" content="掌握一门语言最快捷的方法是首先了解他的语法，然后集中时间快速学习这门语言，每天写2个以上小项目">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'B3Z9QGBKUY',
+      apiKey: '3e128e47b1d944db2bc5aea5bd932897',
+      indexName: 'rockblog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"请输入关键字","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://rocksky.me/2017/07/10/2017-07-10skill01/"/>
+
+
+
+
+
+  <title>技术点总结--01 | 我是一颗小小的石头</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    <script>
+	(function(){
+		if(''){
+			if (prompt('请输入小石头给你的密码，没有的话找小石头要','') !== ''){
+				alert('恭喜你答错啦！');
+				history.back();
+			}
+		}
+	})();
+    </script>
+
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">我是一颗小小的石头</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://rocksky.me/2017/07/10/2017-07-10skill01/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="SKY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="我是一颗小小的石头">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">技术点总结--01</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-10T20:40:27+08:00">
+                2017-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/07/10/2017-07-10skill01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/07/10/2017-07-10skill01/" class="leancloud_visitors" data-flag-title="技术点总结--01">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>掌握一门语言最快捷的方法是首先了解他的语法，然后集中时间快速学习这门语言，每天写2个以上小项目<br><a id="more"></a></p>
+<ul>
+<li>列出文件 ls 参数 目录名  参数 -w 显示中文，-l 详细信息， -a 包括隐藏文件</li>
+<li>建立新目录 mkdir 目录名</li>
+<li>拷贝文件 cp 参数 源文件 目标文件<br>例：想把桌面的Natit.kext 拷贝到驱动目录中<br><code>cp -R /User/用户名/Desktop/Natit.kext /System/Library/Extensions</code><br>参数R表示对目录进行递归操作，kext在图形界面下看起来是个文件，实际上是个文件夹。</li>
+<li>把驱动目录下的所有文件备份到桌面backup<br><code>cp -R /System/Library/Extensions/* /User/用户名/Desktop/backup</code></li>
+<li>删除文件rm 参数 文件<br>例:<code>rm -rf /System/Library/Extensions.mkext</code><br>参数－rf 表示递归和强制，千万要小心使用，如果执行了 rm -rf / 你的系统就全没了</li>
+<li>移动文件 mv 文件<br>例：想把AppleHDA.Kext 移到桌面<br><code>mv /System/Library/Extensions/AppleHDA.kex</code></li>
+<li>删除文件夹下所有指定文件.svn<br><code>sudo find /Users/sky/Desktop/指定文件件名 -name &quot;.svn&quot; -exec rm -r {} \;</code></li>
+</ul>
+<h3 id="企业证书打包命令"><a href="#企业证书打包命令" class="headerlink" title="企业证书打包命令"></a>企业证书打包命令</h3><ul>
+<li>打archive包 拷贝到指定目录下</li>
+<li>执行下面打包命令：<br><code>xcodebuild -exportArchive -archivePath /Users/sky/Documents/01--App包/12.xcarchive -exportPath /Users/sky/Documents/01--App包/商家端.ipa -exportFormat ipa -exportProvisioningProfile &quot;com.sparklerollcloud.business&quot;</code></li>
+</ul>
+<h3 id="通过终端清除所有xcode的mobileProvision文件"><a href="#通过终端清除所有xcode的mobileProvision文件" class="headerlink" title="通过终端清除所有xcode的mobileProvision文件"></a>通过终端清除所有xcode的mobileProvision文件</h3><ul>
+<li><p>首先cd到目录<br><code>cd ~/Library/MobileDevice/Provisioning\ Profiles</code></p>
+</li>
+<li><p>然后删除里面所有的mobileprovision文件<br><code>rm *.mobileprovisio</code></p>
+</li>
+</ul>
+<h3 id="xcode使用技巧"><a href="#xcode使用技巧" class="headerlink" title="xcode使用技巧"></a>xcode使用技巧</h3><ul>
+<li>每次敲block是不是很头疼括号，尖括号什么的，试着敲个inline看Xcode的提示再回车</li>
+<li>快速定位到左下角搜索框的快捷键：cmd + Option + J</li>
+<li>StoryBoard技巧 想直接在view中选择自己想要的元素时，但是又碍于一个view上叠加的元素太多很难直接选中，那么在这时，你同时按住键盘上的shift和 control键，然后在你想选择的元素上点击鼠标，会弹出一个窗口，上面罗列了鼠标点击的位置下所有存在的元素，然后你再去进行选择会变的异常的简单。</li>
+<li>去掉missing file警告<br><code>Xcode-&gt;Preferences-&gt;Source-&gt;Enable Source Control</code></li>
+</ul>
+<h3 id="Https-配置"><a href="#Https-配置" class="headerlink" title="Https 配置"></a>Https 配置</h3><ol>
+<li>证书转换：在服务器人员，给你发送的crt证书后，进到证书路径，执行下面语句， 这样你就可以得到cer类型的证书了。<br><code>openssl x509 -in 你的证书.crt -out 你的证书.cer -outform der</code></li>
+<li>网络请求中配置证书验证</li>
+</ol>
+<h3 id="https配置（打开）"><a href="#https配置（打开）" class="headerlink" title="https配置（打开）"></a>https配置（打开）</h3><ul>
+<li>在Info.plist中添加NSAppTransportSecurity类型Dictionary。</li>
+<li>在NSAppTransportSecurity下添加NSAllowsArbitraryLoads类型Boolean,值设为YES</li>
+<li>注意，单元测试下面也有一个Info.plist，修改那个文件是没有作用的！</li>
+</ul>
+<h3 id="瓦片平铺"><a href="#瓦片平铺" class="headerlink" title="瓦片平铺"></a>瓦片平铺</h3><ul>
+<li>[[UIImage imageNamed:@”buttonbar_edit”] stretchableImageWithLeftCapWidth:20 topCapHeight:10];//瓦片平铺设置背景图</li>
+</ul>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">NSMutableArray *mutArray8 = [NSMutableArray arrayWithObjects:@&quot;33&quot;,@&quot;54&quot;,@&quot;17&quot;,@&quot;93&quot;,@&quot;20&quot;, nil];</div><div class="line"></div><div class="line">//1.冒泡法排序</div><div class="line">//降序</div><div class="line">for (int i = 0; i&lt;mutArray8.count-1; i++) &#123;</div><div class="line">for (int j = 0; j&lt;mutArray8.count-i-1; j++) &#123;</div><div class="line">//判断的条件</div><div class="line">NSComparisonResult result = [mutArray8[j] compare:mutArray8[j+1]];</div><div class="line"></div><div class="line">if (result == NSOrderedAscending) &#123;</div><div class="line">//数组中的元素交换</div><div class="line">[mutArray8 exchangeObjectAtIndex:j withObjectAtIndex:j+1];</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="常用正则"><a href="#常用正则" class="headerlink" title="常用正则"></a>常用正则</h3><h4 id="校验数字的表达式"><a href="#校验数字的表达式" class="headerlink" title="校验数字的表达式"></a>校验数字的表达式</h4><ol>
+<li>数字：<code>^[0-9]*$</code></li>
+<li>n位的数字：<code>^\d{n}$</code></li>
+<li>至少n位的数字：<code>^\d{n,}$</code></li>
+<li>m-n位的数字：<code>^\d{m,n}$</code></li>
+<li>零和非零开头的数字：<code>^(0|[1-9][0-9]*)$</code></li>
+<li>非零开头的最多带两位小数的数字：<code>^([1-9][0-9]*)+(.[0-9]{1,2})?$</code></li>
+<li>带1-2位小数的正数或负数：<code>^(\-)?\d+(\.\d{1,2})?$</code></li>
+<li>正数、负数、和小数：<code>^(\-|\+)?\d+(\.\d+)?$</code></li>
+<li>有两位小数的正实数：<code>^[0-9]+(.[0-9]{2})?$</code></li>
+<li>有1~3位小数的正实数：<code>^[0-9]+(.[0-9]{1,3})?$</code></li>
+<li>非零的正整数<code>^[1-9]\d*$ 或 ^([1-9][0-9]*){1,3}$ 或 ^\+?[1-9][0-9]*$</code></li>
+<li>非零的负整数：<code>^\-[1-9][]0-9&quot;*$ 或 ^-[1-9]\d*$</code></li>
+<li>非负整数：<code>^\d+$ 或 ^[1-9]\d*|0$</code></li>
+<li>非正整数：<code>^-[1-9]\d*|0$ 或 ^((-\d+)|(0+))$</code></li>
+<li>非负浮点数：<code>^\d+(\.\d+)?$ 或 ^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$</code></li>
+<li>非正浮点数：<code>^((-\d+(\.\d+)?)|(0+(\.0+)?))$ 或 ^(-([1-9]\d*\.\d*|0\.\d*[1-9]\d*))|0?\.0+|0$</code></li>
+<li>正浮点数：<code>^[1-9]\d*\.\d*|0\.\d*[1-9]\d*$ 或 ^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$</code></li>
+<li>负浮点数：<code>^-([1-9]\d*\.\d*|0\.\d*[1-9]\d*)$ 或 ^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$</code></li>
+<li>浮点数：<code>^(-?\d+)(\.\d+)?$ 或 ^-?([1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0)$</code></li>
+</ol>
+<h4 id="校验字符的表达式"><a href="#校验字符的表达式" class="headerlink" title="校验字符的表达式"></a>校验字符的表达式</h4><ol>
+<li>汉字：<code>^[\u4e00-\u9fa5]{0,}$</code></li>
+<li>英文和数字：<code>^[A-Za-z0-9]+$ 或 ^[A-Za-z0-9]{4,40}$</code></li>
+<li>长度为3-20的所有字符：<code>^.{3,20}$</code></li>
+<li>由26个英文字母组成的字符串：<code>^[A-Za-z]+$</code></li>
+<li>由26个大写英文字母组成的字符串：<code>^[A-Z]+$</code></li>
+<li>由26个小写英文字母组成的字符串：<code>^[a-z]+$</code></li>
+<li>由数字和26个英文字母组成的字符串：<code>^[A-Za-z0-9]+$</code></li>
+<li>由数字、26个英文字母或者下划线组成的字符串：<code>^\w+$ 或 ^\w{3,20}$</code></li>
+<li>中文、英文、数字包括下划线：<code>^[\u4E00-\u9FA5A-Za-z0-9_]+$</code></li>
+<li>中文、英文、数字但不包括下划线等符号：<code>^[\u4E00-\u9FA5A-Za-z0-9]+$ 或 ^[\u4E00-\u9FA5A-Za-z0-9]{2,20}$</code></li>
+<li>可以输入含有^%&amp;’,;=?$\”等字符：<code>[^%&amp;&#39;,;=?$\x22]+</code></li>
+<li>禁止输入含有~的字符：<code>[^~\x22]+</code></li>
+</ol>
+<h4 id="特殊需求表达式"><a href="#特殊需求表达式" class="headerlink" title="特殊需求表达式"></a>特殊需求表达式</h4><ol>
+<li>Email地址：<code>[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}</code></li>
+<li>域名：<code>[a-zA-Z0-9][-a-zA-Z0-9]{0,62}(/.[a-zA-Z0-9][-a-zA-Z0-9]{0,62})+/.?</code></li>
+<li>InternetURL：<code>[a-zA-z]+://[^\s]* 或 ^http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$</code></li>
+<li>手机号码：<code>^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$</code></li>
+<li>电话号码(“XXX-XXXXXXX”、”XXXX-XXXXXXXX”、”XXX-XXXXXXX”、”XXX-XXXXXXXX”、”XXXXXXX”和”XXXXXXXX)：<code>^(\(\d{3,4}-)|\d{3.4}-)?\d{7,8}$</code></li>
+<li>国内电话号码(0511-4405222、021-87888822)：<code>\d{3}-\d{8}|\d{4}-\d{7}</code></li>
+<li>身份证号(15位、18位数字)：<code>^\d{15}|\d{18}$</code></li>
+<li>短身份证号码(数字、字母x结尾)：<code>^([0-9]){7,18}(x|X)?$ 或 ^\d{8,18}|[0-9x]{8,18}|[0-9X]{8,18}?$</code></li>
+<li>帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：<code>^[a-zA-Z][a-zA-Z0-9_]{4,15}$</code></li>
+<li>密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：<code>^[a-zA-Z]\w{5,17}$</code></li>
+<li>强密码(必须包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间)：<code>^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$</code></li>
+<li>日期格式：<code>^\d{4}-\d{1,2}-\d{1,2}</code></li>
+<li>一年的12个月(01～09和1～12)：<code>^(0?[1-9]|1[0-2])$</code></li>
+<li>一个月的31天(01～09和1～31)：<code>^((0?[1-9])|((1|2)[0-9])|30|31)$</code></li>
+<li>钱的输入格式：</li>
+<li>有四种钱的表示形式我们可以接受:”10000.00” 和 “10,000.00”, 和没有 “分” 的 “10000” 和 “10,000”：<code>^[1-9][0-9]*$</code></li>
+<li>这表示任意一个不以0开头的数字,但是,这也意味着一个字符”0”不通过,所以我们采用下面的形式：<code>^(0|[1-9][0-9]*)$</code></li>
+<li>一个0或者一个不以0开头的数字.我们还可以允许开头有一个负号：<code>^(0|-?[1-9][0-9]*)$</code></li>
+<li>这表示一个0或者一个可能为负的开头不为0的数字.让用户以0开头好了.把负号的也去掉,因为钱总不能是负的吧.下面我们要加的是说明可能的小数部分：<code>^[0-9]+(.[0-9]+)?$</code></li>
+<li>必须说明的是,小数点后面至少应该有1位数,所以”10.”是不通过的,但是 “10” 和 “10.2” 是通过的：<code>^[0-9]+(.[0-9]{2})?$</code></li>
+<li>这样我们规定小数点后面必须有两位,如果你认为太苛刻了,可以这样：<code>^[0-9]+(.[0-9]{1,2})?$</code></li>
+<li>这样就允许用户只写一位小数.下面我们该考虑数字中的逗号了,我们可以这样：<code>^[0-9]{1,3}(,[0-9]{3})*(.[0-9]{1,2})?$</code></li>
+<li>1到3个数字,后面跟着任意个 逗号+3个数字,逗号成为可选,而不是必须：<code>^([0-9]+|[0-9]{1,3}(,[0-9]{3})*)(.[0-9]{1,2})?$</code></li>
+<li>备注：这就是最终结果了,别忘了”+”可以用”*”替代如果你觉得空字符串也可以接受的话(奇怪,为什么?)最后,别忘了在用函数时去掉去掉那个反斜杠,一般的错误都在这里</li>
+<li>xml文件：<code>^([a-zA-Z]+-?)+[a-zA-Z0-9]+\\.[x|X][m|M][l|L]$</code></li>
+<li>中文字符的正则表达式：<code>[\u4e00-\u9fa5]</code></li>
+<li>双字节字符：<code>[^\x00-\xff]</code>    (包括汉字在内，可以用来计算字符串的长度(一个双字节字符长度计2，ASCII字符计1))</li>
+<li>空白行的正则表达式：<code>\n\s*\r</code>   (可以用来删除空白行)</li>
+<li>HTML标记的正则表达式：<code>&lt;(\S*?)[^&gt;]*&gt;.*?&lt;/\1&gt;|&lt;.*? /&gt;</code>   (网上流传的版本太糟糕，上面这个也仅仅能部分，对于复杂的嵌套标记依旧无能为力)</li>
+<li>首尾空白字符的正则表达式：<code>^\s*|\s*$或(^\s*)|(\s*$)</code>    (可以用来删除行首行尾的空白字符(包括空格、制表符、换页符等等)，非常有用的表达式)</li>
+<li>腾讯QQ号：<code>[1-9][0-9]{4,}</code>    (腾讯QQ号从10000开始)</li>
+<li>中国邮政编码：<code>[1-9]\d{5}(?!\d)</code>    (中国邮政编码为6位数字)</li>
+<li>IP地址：<code>\d+\.\d+\.\d+\.\d+</code>    (提取IP地址时有用)</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Tools/" rel="tag"># Tools</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/25/2017-06-25html01/" rel="next" title="html学习01--语法">
+                <i class="fa fa-chevron-left"></i> html学习01--语法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/01/2017-08-01skill02/" rel="prev" title="技术点总结--01">
+                技术点总结--01 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="SKY" />
+          <p class="site-author-name" itemprop="name">SKY</p>
+           
+              <p class="site-description motion-element" itemprop="description">SKY | iOS | develop | 移动</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/skyrock90" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/3124928107?is_all=1" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#企业证书打包命令"><span class="nav-number">1.</span> <span class="nav-text">企业证书打包命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过终端清除所有xcode的mobileProvision文件"><span class="nav-number">2.</span> <span class="nav-text">通过终端清除所有xcode的mobileProvision文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#xcode使用技巧"><span class="nav-number">3.</span> <span class="nav-text">xcode使用技巧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Https-配置"><span class="nav-number">4.</span> <span class="nav-text">Https 配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#https配置（打开）"><span class="nav-number">5.</span> <span class="nav-text">https配置（打开）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#瓦片平铺"><span class="nav-number">6.</span> <span class="nav-text">瓦片平铺</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序"><span class="nav-number">7.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用正则"><span class="nav-number">8.</span> <span class="nav-text">常用正则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#校验数字的表达式"><span class="nav-number">8.1.</span> <span class="nav-text">校验数字的表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#校验字符的表达式"><span class="nav-number">8.2.</span> <span class="nav-text">校验字符的表达式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特殊需求表达式"><span class="nav-number">8.3.</span> <span class="nav-text">特殊需求表达式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">SKY</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "0e863791628e4ea384c811d1cb509425",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.1"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("uMSsGE1N7o7xR0ddmluiyocN-gzGzoHsz", "GQJnywX1H3dn7BuHJB41cmAu");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
