@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="我是一颗小小的石头">
 <meta property="og:description" content="CocoaPods是iOS项目的依赖管理工具，该项目源码在Github上管理。开发iOS项目不可避免地要使用第三方开源库CocoaPods是用Ruby实现的，要想使用它首先需要有Ruby的环境。幸运的是OS X系统默认已经可以运行Ruby了，因此我们只需执行以下命令：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-11T07:33:13.000Z">
+<meta property="og:updated_time" content="2017-10-12T01:07:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="技术点总结--02">
 <meta name="twitter:description" content="CocoaPods是iOS项目的依赖管理工具，该项目源码在Github上管理。开发iOS项目不可避免地要使用第三方开源库CocoaPods是用Ruby实现的，要想使用它首先需要有Ruby的环境。幸运的是OS X系统默认已经可以运行Ruby了，因此我们只需执行以下命令：">
@@ -471,11 +471,10 @@
 <h4 id="使用cocoaPods"><a href="#使用cocoaPods" class="headerlink" title="使用cocoaPods"></a>使用cocoaPods</h4><ol>
 <li>cd 到工程的根目录下  cd /Users/sky/Desktop/框架</li>
 <li>vim Podfile        //创建Podfile文件</li>
-<li>添加如下内容<br>Podfile文件的格式应如下：<br>paltform :ios, ‘7.0’<br>pod “AFNetworking”,    “~&gt; 2.0”  </li>
-</ol>
-<p>需要注意的几点：platform那一行，ios三个字母都要小写，而且与前面的冒号之间不能有间隔，后面的版本号也可以不写，但是有些开源库对版本是有要求的，比如要在6.0以上才能运行，遇到这样的开源库就需要写上版本号。<br>platform下面就是Cocoapods需要集成的开源库，根据你的需要确定集成那些库。<br>我要集成AFNetworking这个库类，需要在Cocoapods里面先搜索是否有需要的库，可以在Terminal中输入：<br>pod search AFNetworking<br>回车之后就可以看到和你搜索的关键字相关的一些库类</p>
-<ol>
-<li>下载三方库 执行  pod install  //备用  pod install –verbose –no-repo-update</li>
+<li><p>添加如下内容<br>Podfile文件的格式应如下：<br>paltform :ios, ‘7.0’<br>pod “AFNetworking”,    “~&gt; 2.0”<br>需要注意的几点：platform那一行，ios三个字母都要小写，而且与前面的冒号之间不能有间隔，后面的版本号也可以不写，但是有些开源库对版本是有要求的，比如要在6.0以上才能运行，遇到这样的开源库就需要写上版本号。<br>platform下面就是Cocoapods需要集成的开源库，根据你的需要确定集成那些库。<br>我要集成AFNetworking这个库类，需要在Cocoapods里面先搜索是否有需要的库，可以在Terminal中输入：<br>pod search AFNetworking<br>回车之后就可以看到和你搜索的关键字相关的一些库类</p>
+</li>
+<li><p>下载三方库 执行  pod install  //备用  pod install –verbose –no-repo-update</p>
+</li>
 <li>添加三方库 open -e Podfile    添加后再次执行pod install</li>
 </ol>
 <h4 id="切记如下两点："><a href="#切记如下两点：" class="headerlink" title="切记如下两点："></a>切记如下两点：</h4><ol>
