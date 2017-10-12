@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="我是一颗小小的石头">
 <meta property="og:description" content="CocoaPods是iOS项目的依赖管理工具，该项目源码在Github上管理。开发iOS项目不可避免地要使用第三方开源库CocoaPods是用Ruby实现的，要想使用它首先需要有Ruby的环境。幸运的是OS X系统默认已经可以运行Ruby了，因此我们只需执行以下命令：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-10-12T01:07:49.000Z">
+<meta property="og:updated_time" content="2017-10-12T01:36:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="技术点总结--02">
 <meta name="twitter:description" content="CocoaPods是iOS项目的依赖管理工具，该项目源码在Github上管理。开发iOS项目不可避免地要使用第三方开源库CocoaPods是用Ruby实现的，要想使用它首先需要有Ruby的环境。幸运的是OS X系统默认已经可以运行Ruby了，因此我们只需执行以下命令：">
@@ -445,8 +445,7 @@
         <p>CocoaPods是iOS项目的依赖管理工具，该项目源码在Github上管理。开发iOS项目不可避免地要使用第三方开源库<br>CocoaPods是用Ruby实现的，要想使用它首先需要有Ruby的环境。幸运的是OS X系统默认已经可以运行Ruby了，因此我们只需执行以下命令：<br><a id="more"></a></p>
 <h3 id="配置安装cocoaPods"><a href="#配置安装cocoaPods" class="headerlink" title="配置安装cocoaPods"></a>配置安装cocoaPods</h3><ul>
 <li><code>sudo gem install -n /usr/local/bin cocoapods</code></li>
-<li>输入password   等待一段时间  有可能会出现<br>`ERROR:  Could not find a valid gem ‘cocoapods’ (&gt;= 0), here is why:<pre><code>Unable to download data from https://rubygems.org/ - Errno::ETIMEDOUT: Operation timed out - connect(2) (https://rubygems.org/latest_specs.4.8.gz)`
-</code></pre>继续执行以下命令（这是因为ruby的软件源rubygems.org因为使用亚马逊的云服务，被我天朝屏蔽了，需要更新一下ruby的源)</li>
+<li>输入password   等待一段时间  有可能会出现<br><code>ERROR:  Could not find a valid gem &#39;cocoapods&#39; (&gt;= 0), here is why:Unable to download data from https://rubygems.org/ - Errno::ETIMEDOUT: Operation timed out - connect(2) (https://rubygems.org/latest_specs.4.8.gz)</code>继续执行以下命令（这是因为ruby的软件源rubygems.org因为使用亚马逊的云服务，被我天朝屏蔽了，需要更新一下ruby的源)</li>
 <li><code>gem sources -l</code> (查看当前ruby的源)</li>
 <li><code>gem sources --remove https://rubygems.org/</code></li>
 <li><code>gem sources -a https://ruby.taobao.org/</code>   更新成功后提示（<a href="https://ruby.taobao.org/" target="_blank" rel="external">https://ruby.taobao.org/</a> added to sources）</li>
@@ -457,17 +456,14 @@
 </li>
 <li><p>然后重新执行安装下载命令<br><code>sudo gem install -n /usr/local/bin cocoapods</code>   必须是这样的格式否则会出现：<br><code>ERROR:  While executing gem ... (Errno::EPERM)     Operation not permitted - /usr/bin/fuzzy_match</code></p>
 </li>
-</ul>
-<ul>
 <li><p>这时候应该没什么问题了 接下来进行安装，执行：<br><code>pod setup</code></p>
 </li>
 <li><p>Terminal会停留在 Setting up CocoaPods master repo 这个状态一段时间,是因为要进行下载安装,而且目录比较大,需要耐心等待一下</p>
 </li>
 <li><p>安装成功后显示以下提示</p>
 </li>
-<li><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">Setting up CocoaPods master repo</div><div class="line"></div><div class="line">CocoaPods 1.0.0.beta.4 is available.</div><div class="line">To update use: `gem install cocoapods --pre`</div><div class="line">[!] This is a test version we&apos;d love you to try.</div><div class="line"></div><div class="line">For more information see http://blog.cocoapods.org</div><div class="line">and the CHANGELOG for this version http://git.io/BaH8pQ.</div><div class="line"></div><div class="line">Setup completed</div></pre></td></tr></table></figure>
-</li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Setting up CocoaPods master repo</div><div class="line">CocoaPods 1.0.0.beta.4 is available.</div><div class="line">To update use: `gem install cocoapods --pre`</div><div class="line">[!] This is a test version we&apos;d love you to try.</div><div class="line">For more information see http://blog.cocoapods.org</div><div class="line">and the CHANGELOG for this version http://git.io/BaH8pQ.</div><div class="line">Setup completed</div></pre></td></tr></table></figure>
 <h4 id="使用cocoaPods"><a href="#使用cocoaPods" class="headerlink" title="使用cocoaPods"></a>使用cocoaPods</h4><ol>
 <li>cd 到工程的根目录下  cd /Users/sky/Desktop/框架</li>
 <li>vim Podfile        //创建Podfile文件</li>
@@ -481,17 +477,57 @@
 <li>从此以后需要使用Cocoapods生成的 .xcworkspace文件来打开工程，而不是使用以前的.xcodeproj文件</li>
 <li>每次更改了Podfile文件，都需要重新执行一次pod update命令<br>ps:当执行pod install之后，除了Podfile，还会生成一个名为Podfile.lock的文件，它会锁定当前各依赖库的版本，之后即使多次执行pod install也不会更改版本，只有执行pod update才会改变Podfile.lock.在多人协作的时候，这样可以防止第三方库升级时候造成大家各自的第三方库版本不一致。所以在提交版本的时候不能把它落下，也不要添加到.gitignore中.</li>
 </ol>
-<h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><ol>
-<li>[!] Invalid Podfile file: undefined local variable or method `en_US’ for #<pod::podfile:0x00000102a5d8b0>. Updating CocoaPods might fix the issue.<br>原因：单引号格式，可能是手动输入导致<br>解决办法：系统偏好设置-键盘-文本-将“使用智能引号和破折号”一项取消勾选-再将podfile里面的单（双）引号修改一下</pod::podfile:0x00000102a5d8b0></li>
-</ol>
-<ol>
-<li>ArgumentError - invalid byte sequence in US-ASCII<br>原因：字符集错误<br>解决办法：<br>使用locale命令查看当前的字符集，如果都是zh，需要执行以下命令：<br>export LC_ALL=en_US.UTF-8<br>export LANG=en_US.UTF-8<br>然后再使用locale命令查看，已经改过来了</li>
-</ol>
-<ol>
-<li>[!] The YMTea [Debug] target overrides the OTHER_LDFLAGS build setting defined in Pods/Target Support Files/Pods/Pods.debug.xcconfig’. This can lead to problems with the CocoaPods installation<br> ◦    Use the $(inherited) flag, or<br> ◦    Remove the build settings from the target.<br>[!] The YMTea [Release] target overrides the OTHER_LDFLAGS build setting defined in Pods/Target Support Files/Pods/Pods.release.xcconfig’. This can lead to problems with the CocoaPods installation<br>Use the <code>$(inherited)</code> flag, or Remove the build settings from the target.</li>
-</ol>
-<p>原因：我是在已有项目中集成Cocoapods的时候遇到这个问题，原因是项目 Target 中做了一些设置，CocoaPods 也做了默认的设置，如果两个设置结果不一致，就会造成问题。<br>解决方法：我想要使用 CocoaPods 中的设置，分别在我的项目中定义PODS_ROOT 和 Other Linker Flags的地方（build settings），把他们的值用$(inherited)替换掉，进入终端，执行 pod update<br>警告没了，回到 Xcode，build通过。<br>网上还流行另外一种简单粗暴的方法:点击项目文件 project.xcodeproj，右键显示包内容，用文本编辑器打开project.pbxproj，删除OTHER_LDFLAGS的地方，保存(这种我没试过)</p>
-<p>4.[!] Oh no, an error occurred.<br>It appears to have originated from your Podfile at line 2.<br>Search for existing GitHub issues similar to yours:<br><a href="https://github.com/CocoaPods/CocoaPods/search?q=%2FUsers%2Fxiao6%2FMusic%2FGI06%E5%AE%9E%E8%AE%AD%E8%8A%B8%E8%8C%97%E8%8C%B6%E5%8F%B6%2FYMTea%2FPodfile%3A2%3A+syntax+error%2C+unexpected+%27%3A%27%2C+expecting+end-of-input%0Aplatform+%3A+ios%2C+%277.0%27%0A++++++++++%5E&amp;type=Issues" target="_blank" rel="external">https://github.com/CocoaPods/CocoaPods/search?q=%2FUsers%2Fxiao6%2FMusic%2FGI06%E5%AE%9E%E8%AE%AD%E8%8A%B8%E8%8C%97%E8%8C%B6%E5%8F%B6%2FYMTea%2FPodfile%3A2%3A+syntax+error%2C+unexpected+%27%3A%27%2C+expecting+end-of-input%0Aplatform+%3A+ios%2C+%277.0%27%0A++++++++++%5E&amp;type=Issues</a><br>If none exists, create a ticket, with the template displayed above, on:<br><a href="https://github.com/CocoaPods/CocoaPods/issues/new" target="_blank" rel="external">https://github.com/CocoaPods/CocoaPods/issues/new</a><br>Be sure to first read the contributing guide for details on how to properly submit a ticket:<br><a href="https://github.com/CocoaPods/CocoaPods/blob/master/CONTRIBUTING.md" target="_blank" rel="external">https://github.com/CocoaPods/CocoaPods/blob/master/CONTRIBUTING.md</a><br>Don’t forget to anonymize any private data!<br>原因：这个问题比较蛋疼，弄了好久，仔细看发现就是因为Podfile文件里面 platform 那一行 冒号和ios之间多了一个空格。。。。其实这个错误在报错的时候ruby已经给出了，只是一开始没有好好看：</p>
+<h4 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h4><ul>
+<li><p>[!] Invalid Podfile file: undefined local variable or method `en_US’ for #<pod::podfile:0x00000102a5d8b0>. Updating CocoaPods might fix the issue.<br>原因：单引号格式，可能是手动输入导致<br>解决办法：系统偏好设置-键盘-文本-将“使用智能引号和破折号”一项取消勾选-再将podfile里面的单（双）引号修改一下</pod::podfile:0x00000102a5d8b0></p>
+</li>
+<li><p>ArgumentError - invalid byte sequence in US-ASCII<br>原因：字符集错误<br>解决办法：<br>使用locale命令查看当前的字符集，如果都是zh，需要执行以下命令：<br>export LC_ALL=en_US.UTF-8<br>export LANG=en_US.UTF-8<br>然后再使用locale命令查看，已经改过来了</p>
+</li>
+</ul>
+<ul>
+<li>The YMTea [Debug] target overrides the OTHER_LDFLAGS build setting defined in Pods/Target Support Files/Pods/Pods.debug.xcconfig’. This can lead to problems with the CocoaPods installation<br>  ◦    Use the $(inherited) flag, or<br>  ◦    Remove the build settings from the target.<br>[!] The YMTea [Release] target overrides the OTHER_LDFLAGS build setting defined in Pods/Target Support Files/Pods/Pods.release.xcconfig’. This can lead to problems with the CocoaPods installation<br>Use the <code>$(inherited)</code> flag, or Remove the build settings from the target.<br>原因：我是在已有项目中集成Cocoapods的时候遇到这个问题，原因是项目 Target 中做了一些设置，CocoaPods 也做了默认的设置，如果两个设置结果不一致，就会造成问题。<br>解决方法：我想要使用 CocoaPods 中的设置，分别在我的项目中定义PODS_ROOT 和 Other Linker Flags的地方（build settings），把他们的值用$(inherited)替换掉，进入终端，执行 pod update<br>警告没了，回到 Xcode，build通过。<br>网上还流行另外一种简单粗暴的方法:点击项目文件 project.xcodeproj，右键显示包内容，用文本编辑器打开project.pbxproj，删除OTHER_LDFLAGS的地方，保存(这种我没试过)</li>
+</ul>
+<ul>
+<li>[!] Oh no, an error occurred.<br>It appears to have originated from your Podfile at line 2.<br>Search for existing GitHub issues similar to yours:<br><a href="https://github.com/CocoaPods/CocoaPods/search?q=%2FUsers%2Fxiao6%2FMusic%2FGI06%E5%AE%9E%E8%AE%AD%E8%8A%B8%E8%8C%97%E8%8C%B6%E5%8F%B6%2FYMTea%2FPodfile%3A2%3A+syntax+error%2C+unexpected+%27%3A%27%2C+expecting+end-of-input%0Aplatform+%3A+ios%2C+%277.0%27%0A++++++++++%5E&amp;type=Issues" target="_blank" rel="external">https://github.com/CocoaPods/CocoaPods/search?q=%2FUsers%2Fxiao6%2FMusic%2FGI06%E5%AE%9E%E8%AE%AD%E8%8A%B8%E8%8C%97%E8%8C%B6%E5%8F%B6%2FYMTea%2FPodfile%3A2%3A+syntax+error%2C+unexpected+%27%3A%27%2C+expecting+end-of-input%0Aplatform+%3A+ios%2C+%277.0%27%0A++++++++++%5E&amp;type=Issues</a><br>If none exists, create a ticket, with the template displayed above, on:<br><a href="https://github.com/CocoaPods/CocoaPods/issues/new" target="_blank" rel="external">https://github.com/CocoaPods/CocoaPods/issues/new</a><br>Be sure to first read the contributing guide for details on how to properly submit a ticket:<br><a href="https://github.com/CocoaPods/CocoaPods/blob/master/CONTRIBUTING.md" target="_blank" rel="external">https://github.com/CocoaPods/CocoaPods/blob/master/CONTRIBUTING.md</a><br>Don’t forget to anonymize any private data!<br>原因：这个问题比较蛋疼，弄了好久，仔细看发现就是因为Podfile文件里面 platform 那一行 冒号和ios之间多了一个空格。。。。其实这个错误在报错的时候ruby已经给出了，只是一开始没有好好看：</li>
+</ul>
+<h3 id="这里贴一些本人认为不错常用的三方库"><a href="#这里贴一些本人认为不错常用的三方库" class="headerlink" title="这里贴一些本人认为不错常用的三方库"></a>这里贴一些本人认为不错常用的三方库</h3><ul>
+<li>Masonry 一个UI适配的三方库 <a href="https://github.com/SnapKit/Masonry" target="_blank" rel="external">源码点这里</a></li>
+<li>lottie-ios 一个牛X的动画三方库 <a href="https://github.com/airbnb/lottie-ios" target="_blank" rel="external">源码点这里</a></li>
+<li>FMDB 一个便于数据库操作的三方库 <a href="https://github.com/ccgus/fmdb" target="_blank" rel="external">源码点这里</a></li>
+<li>IQKeyboardManager 一个处理键盘和输入框的三方库 <a href="https://github.com/hackiftekhar/IQKeyboardManager" target="_blank" rel="external">源码点这里</a></li>
+<li>AFNetworking 一个数据请求的三方库 <a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">源码点这里</a></li>
+<li>MJRefresh 一个列表刷新的三方库 <a href="https://github.com/CoderMJLee/MJRefresh" target="_blank" rel="external">源码点这里</a></li>
+<li>MJExtension 一个Json解析的三方库 <a href="https://github.com/CoderMJLee/MJExtension" target="_blank" rel="external">源码点这里</a></li>
+<li>MBProgressHUD 一个信息提示的三方库 <a href="https://github.com/jdg/MBProgressHUD" target="_blank" rel="external">源码点这里</a></li>
+<li>SDWebImage 一个处理网络图片的三方库 <a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">源码点这里</a></li>
+<li>NJKWebViewProgress 一个webview请求进度的三方库 <a href="https://github.com/ninjinkun/NJKWebViewProgress" target="_blank" rel="external">源码点这里</a></li>
+<li>Aspects 一个黑魔法的三方库 <a href="https://github.com/steipete/Aspects" target="_blank" rel="external">源码点这里</a></li>
+<li>SAMKeychain 一个存储用户敏感信息的三方库 <a href="https://github.com/soffes/SAMKeychain" target="_blank" rel="external">源码点这里</a></li>
+<li>SDCycleScrollView 一个轮播图的三方库 <a href="https://github.com/gsdios/SDCycleScrollView" target="_blank" rel="external">源码点这里</a></li>
+<li>MMDrawerController 一个侧滑抽屉的三方库 <a href="https://github.com/mutualmobile/MMDrawerController" target="_blank" rel="external">源码点这里</a></li>
+<li>FDFullscreenPopGesture 一个支持全屏滑动返回的三方库 <a href="https://github.com/forkingdog/FDFullscreenPopGesture" target="_blank" rel="external">源码点这里</a></li>
+<li>JPush 一个UI适配的三方库 <a href="https://github.com/wisdomslab/JPush" target="_blank" rel="external">源码点这里</a></li>
+<li>PYSearch 一个搜索的三方库 <a href="https://github.com/iphone5solo/PYSearch" target="_blank" rel="external">源码点这里</a></li>
+<li>GPUImage 一个图片处理的三方库 <a href="">源码点这里</a></li>
+</ul>
+<h3 id="比较不错的技术文档"><a href="#比较不错的技术文档" class="headerlink" title="比较不错的技术文档"></a>比较不错的技术文档</h3><ul>
+<li>git常用命令 <a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">点这里</a></li>
+<li>正则表达式 <a href="http://www.admin10000.com/document/5944.html" target="_blank" rel="external">点这里</a></li>
+<li>Masonry使用 <a href="http://www.jianshu.com/p/2b57ece2b3b8" target="_blank" rel="external">点这里</a></li>
+<li>邓白氏码申请 <a href="http://www.cnblogs.com/zhangying-domy/p/5091759.html" target="_blank" rel="external">点这里</a></li>
+<li>喵大神的博客 <a href="https://onevcat.com" target="_blank" rel="external">点这里</a></li>
+<li>源码解读 <a href="http://www.cocoachina.com/cms/tags.php?/源码/" target="_blank" rel="external">点这里</a></li>
+<li>旋转引导页 <a href="http://www.jianshu.com/p/1b470fd15470" target="_blank" rel="external">点这里</a></li>
+<li>git常用命令 <a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">点这里</a></li>
+<li>git常用命令 <a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">点这里</a></li>
+<li>git常用命令 <a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">点这里</a></li>
+<li>git常用命令 <a href="http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html" target="_blank" rel="external">点这里</a></li>
+</ul>
+<h3 id="下面罗列了一些我的开源项目，喜欢的别忘了给颗star"><a href="#下面罗列了一些我的开源项目，喜欢的别忘了给颗star" class="headerlink" title="下面罗列了一些我的开源项目，喜欢的别忘了给颗star"></a>下面罗列了一些我的开源项目，喜欢的别忘了给颗star</h3><ul>
+<li>SKYTools 一个自己项目中常用的小工具/分类等等的开源库 <a href="https://github.com/skyrock90/SKYTools" target="_blank" rel="external">源码点这里</a></li>
+<li>Masonry 一个UI适配的三方库 <a href="">源码点这里</a></li>
+<li>Masonry 一个UI适配的三方库 <a href="">源码点这里</a></li>
+<li>Masonry 一个UI适配的三方库 <a href="">源码点这里</a></li>
+</ul>
 
       
     </div>
@@ -727,7 +763,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置安装cocoaPods"><span class="nav-number">1.</span> <span class="nav-text">配置安装cocoaPods</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用cocoaPods"><span class="nav-number">1.1.</span> <span class="nav-text">使用cocoaPods</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#切记如下两点："><span class="nav-number">1.2.</span> <span class="nav-text">切记如下两点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">1.3.</span> <span class="nav-text">常见问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置安装cocoaPods"><span class="nav-number">1.</span> <span class="nav-text">配置安装cocoaPods</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用cocoaPods"><span class="nav-number">1.1.</span> <span class="nav-text">使用cocoaPods</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#切记如下两点："><span class="nav-number">1.2.</span> <span class="nav-text">切记如下两点：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常见问题"><span class="nav-number">1.3.</span> <span class="nav-text">常见问题</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这里贴一些本人认为不错常用的三方库"><span class="nav-number">2.</span> <span class="nav-text">这里贴一些本人认为不错常用的三方库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较不错的技术文档"><span class="nav-number">3.</span> <span class="nav-text">比较不错的技术文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下面罗列了一些我的开源项目，喜欢的别忘了给颗star"><span class="nav-number">4.</span> <span class="nav-text">下面罗列了一些我的开源项目，喜欢的别忘了给颗star</span></a></li></ol></div>
             
 
           </div>
