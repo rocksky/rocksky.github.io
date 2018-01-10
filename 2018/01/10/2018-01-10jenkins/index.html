@@ -92,18 +92,18 @@
 
 
 
-<meta name="description" content="农药19个英雄了，最近有点扛不住啊，身心俱疲、、、">
+<meta name="description" content="站在996的风口浪尖上，百度，google,查阅各种资料博客后，历经40次的构建终于用jenkins在MAC上实现了iOS App的CI（持续集成）一键上传App到蒲公英，网上资料很多老旧或者不够完善或者坑比较多，于是乎本人踩了一个又一个的坑才爬了起来，于是乎今天就贴个比较完善的，让大家尽量少踩坑，尽快实现一个CI（持续集成）的Jenkins部署，如果觉得本文不错别忘记点赞哟！支持本宅男写出更好的">
 <meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS--webview使用">
-<meta property="og:url" content="http://rocksky.me/2017/10/23/2017-10-23webview/index.html">
+<meta property="og:title" content="jenkins实现CI持续化集成iOS App">
+<meta property="og:url" content="http://rocksky.me/2018/01/10/2018-01-10jenkins/index.html">
 <meta property="og:site_name" content="我是一颗小小的石头">
-<meta property="og:description" content="农药19个英雄了，最近有点扛不住啊，身心俱疲、、、">
+<meta property="og:description" content="站在996的风口浪尖上，百度，google,查阅各种资料博客后，历经40次的构建终于用jenkins在MAC上实现了iOS App的CI（持续集成）一键上传App到蒲公英，网上资料很多老旧或者不够完善或者坑比较多，于是乎本人踩了一个又一个的坑才爬了起来，于是乎今天就贴个比较完善的，让大家尽量少踩坑，尽快实现一个CI（持续集成）的Jenkins部署，如果觉得本文不错别忘记点赞哟！支持本宅男写出更好的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-26T09:35:17.000Z">
+<meta property="og:updated_time" content="2018-01-10T03:00:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS--webview使用">
-<meta name="twitter:description" content="农药19个英雄了，最近有点扛不住啊，身心俱疲、、、">
+<meta name="twitter:title" content="jenkins实现CI持续化集成iOS App">
+<meta name="twitter:description" content="站在996的风口浪尖上，百度，google,查阅各种资料博客后，历经40次的构建终于用jenkins在MAC上实现了iOS App的CI（持续集成）一键上传App到蒲公英，网上资料很多老旧或者不够完善或者坑比较多，于是乎本人踩了一个又一个的坑才爬了起来，于是乎今天就贴个比较完善的，让大家尽量少踩坑，尽快实现一个CI（持续集成）的Jenkins部署，如果觉得本文不错别忘记点赞哟！支持本宅男写出更好的">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://rocksky.me/2017/10/23/2017-10-23webview/"/>
+  <link rel="canonical" href="http://rocksky.me/2018/01/10/2018-01-10jenkins/"/>
 
 
 
 
 
-  <title>iOS--webview使用 | 我是一颗小小的石头</title>
+  <title>jenkins实现CI持续化集成iOS App | 我是一颗小小的石头</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -335,7 +335,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://rocksky.me/2017/10/23/2017-10-23webview/">
+    <link itemprop="mainEntityOfPage" href="http://rocksky.me/2018/01/10/2018-01-10jenkins/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="SKY">
@@ -352,7 +352,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS--webview使用</h1>
+          <h1 class="post-title" itemprop="name headline">jenkins实现CI持续化集成iOS App</h1>
         
 
         <div class="post-meta">
@@ -364,8 +364,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-23T20:44:27+08:00">
-                2017-10-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-10T10:44:27+08:00">
+                2018-01-10
               </time>
             
 
@@ -405,7 +405,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2017/10/23/2017-10-23webview/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2018/01/10/2018-01-10jenkins/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -414,7 +414,7 @@
 
           
           
-             <span id="/2017/10/23/2017-10-23webview/" class="leancloud_visitors" data-flag-title="iOS--webview使用">
+             <span id="/2018/01/10/2018-01-10jenkins/" class="leancloud_visitors" data-flag-title="jenkins实现CI持续化集成iOS App">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -442,25 +442,49 @@
       
 
       
-        <p>农药19个英雄了，最近有点扛不住啊，身心俱疲、、、<br><a id="more"></a></p>
-<h3 id="webview内容获取"><a href="#webview内容获取" class="headerlink" title="webview内容获取"></a>webview内容获取</h3><p>获取所有html:NSString <em>lJs = @”document.documentElement.innerHTML”;<br>获取网页title:NSString </em>lJs2 = @”document.title”;<br>UIWebView <em>lWebView = [self getCurrentWebView];<br>NSString </em>lHtml1 = [lWebView stringByEvaluatingJavaScriptFromString:lJs];<br>NSString *lHtml2 = [lWebView stringByEvaluatingJavaScriptFromString:lJs2];</p>
-<p>通过执行javascript的方法实现。下面列出更多javascript的方法：<br>JavaScript获取当前页面URL、title等，具体怎么用就看自己了～<br>由于本站用了伪静态，所以获取不到文档名，请[点击这里 ] 然后运行代码查看完整获取，document.location.port;是获取URL关联的端口号码，thisHash = document.location.hash;是获取链接属性中在井号“#”后面的分段。 </p>
-<p>thisURL = document.URL; </p>
-<p>thisHREF = document.location.href; </p>
-<p>thisSLoc = self.location.href; </p>
-<p>thisDLoc = document.location; </p>
-<p>thisTLoc = top.location.href; </p>
-<p>thisPLoc = parent.document.location; </p>
-<p>thisTHost = top.location.hostname; </p>
-<p>thisHost = location.hostname; </p>
-<p>thisTitle = document.title;</p>
-<p>thisProtocol = document.location.protocol;</p>
-<p>thisPort = document.location.port;</p>
-<p>thisHash = document.location.hash;</p>
-<p>thisSearch = document.location.search;</p>
-<p>thisPathname = document.location.pathname;</p>
-<p>thisHtml = document.documentElement.innerHTML;</p>
-<p>thisBodyText = document.documentElement.innerText;//获取网页内容文字<br>thisBodyText = document.body.innerText;//获取网页内容文字</p>
+        <p>站在996的风口浪尖上，百度，google,查阅各种资料博客后，历经40次的构建终于用jenkins在MAC上实现了iOS App的CI（持续集成）一键上传App到蒲公英，网上资料很多老旧或者不够完善或者坑比较多，于是乎本人踩了一个又一个的坑才爬了起来，于是乎今天就贴个比较完善的，让大家尽量少踩坑，尽快实现一个CI（持续集成）的Jenkins部署，如果觉得本文不错别忘记点赞哟！支持本宅男写出更好的文章记得打赏点零花钱哟！<br><a id="more"></a></p>
+<h4 id="首先要准备的case"><a href="#首先要准备的case" class="headerlink" title="首先要准备的case"></a>首先要准备的case</h4><ul>
+<li><p>一台MAC，原因是iOS打包无法在Linux上进行，因为Jenkins的Xcode插件需要调用Xcode，Xcode只能在OSX系统下安装，如果非要在Linux上实现，可以建立节点，过程过于繁琐，此处忽略  </p>
+</li>
+<li><p>保存下面（jenkins的启动与关闭）后期部署会经常用到    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">jenkins -h//启动Jenkins</div><div class="line">control + c //快捷键关闭Jenkins</div></pre></td></tr></table></figure>
+</li>
+<li><p>把工程的证书配置为企业证书，release模式</p>
+</li>
+<li><p>打开钥匙串，找到企业证书的根证书，例如：iPhone Distribution: xxx Co., LTD，点击小箭头，出现钥匙的图片后右键选择-显示简介-访问控制-允许所有应用程序访问此项目-存储更改（这步很重要不可少，是为了给jenkins一个访问权限）</p>
+</li>
+</ul>
+<h4 id="安装jenkins"><a href="#安装jenkins" class="headerlink" title="安装jenkins"></a>安装jenkins</h4><ul>
+<li><p>首先执行下面命令行查看是否有jenkins依赖的java环境，出现类似$ java version “1.8.xx”说明已安装java环境，没有安装换版本过低的可以到<a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="external">这里下载安装</a>,或者Google 百度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ java –version</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装HomeBrew，jenkins依赖HomeBrew包管理，执行如下命令行查看是否已安装,没安装的请移步Google，百度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew -v</div></pre></td></tr></table></figure>
+</li>
+<li><p>安装完HomeBrew后，执行以下命令行，安装jenkins，安装时间较长，耐心等待，出现Jenkins is fully up and running字样后，说明安装成功已启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install jenkins</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//需要删除Jenkins可以执行命令行</div><div class="line">$ sh &quot;/Library/Application Support/Jenkins/Uninstall.command&quot;</div><div class="line">//使用brew安装的可以执行</div><div class="line">$ brew uninstall jenkins</div><div class="line"> </div><div class="line"> ```  </div><div class="line">- 在浏览器中输入[http://localhost:8080](http://localhost:8080)，首次安装应该会出现如下界面，这里需要你去找到Jenkins的初始密码，这个界面不要关闭先放着</div><div class="line">![image](http://opmmnosdy.bkt.clouddn.com/Jenkins01.png)</div><div class="line">- 去找到Jenkins的初始密码，首先显示隐藏文件夹执行下面命令行显示隐藏文件夹，密码在上图红色的路径文件里面，密码最好备份一下，后续可能会用到</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>defaults write com.apple.finder AppleShowAllFiles YES<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">- 输入密码后选择推荐安装，默认选中的，如果部分插件安装失败，可以后续手动安装，之后会弹出如下图，创建管理员，记住密码，之后登陆用的就是这个密码了，创建之后就会进入Jenkins的主界面</div><div class="line">![image](http://opmmnosdy.bkt.clouddn.com/Jenkins02.jpeg)</div><div class="line"></div><div class="line">#### 安装Jenkins插件</div><div class="line">- 点击系统管理-管理插件-可选插件，可以搜索插件，公司项目是托管在gitlab上的，所以我选的插件有（用其他托管代码的可以对应选择插件） </div><div class="line">Gitlab Hook Plugin  </div><div class="line">GitLab Plugin  </div><div class="line">Xcode integration //用于打包ipa xcode9以后这个插件不好用了</div><div class="line"></div><div class="line">![image](http://opmmnosdy.bkt.clouddn.com/jenkins03.jpeg)</div><div class="line">![image](http://opmmnosdy.bkt.clouddn.com/jenkins04.jpeg)</div><div class="line"></div><div class="line">#### 构建项目</div><div class="line">- 点击新建Item-输入项目名(建议所有名统一用工程名，避免出现各种坑)-构建一个自由风格的软件项目-确定  </div><div class="line"></div><div class="line">- 基础配置  描述可以随意填写 其它选择默认 如下图</div><div class="line">![image](http://opmmnosdy.bkt.clouddn.com/jenkins05.png)</div><div class="line"></div><div class="line">- 源码管理 我的代码托管在gitlab所以选git，Repository URL填写项目的load地址，Credentials选择右方Add，在弹出的视图中选择kind-username with password，填写username和password为代码托管的账号和密码，登录成功后Credentials选择刚填写的账号，Branch Specifier (blank for &apos;any&apos;)选择默认或者修改为自己想要的分支，其它选项选择默认，配置成功后红色字样是不显示的，分支默认为master也可指定为自己创建的分支名，指定后构建的是指定分支的代码</div><div class="line">![image](http://opmmnosdy.bkt.clouddn.com/Jenkins06.png)</div><div class="line">![image](http://opmmnosdy.bkt.clouddn.com/Jenkins07.png)</div><div class="line"></div><div class="line">- 构建触发器 此处先不做设置 等输出ipa后再来编辑,也可不作处理</div><div class="line"></div><div class="line">- 构建环境 首先去Jenkins首页找到如下图选项点击进去</div><div class="line">![image](http://opmmnosdy.bkt.clouddn.com/Jenkins12.png)</div><div class="line"></div><div class="line"> 如下图选择文件（证书配置文件）-upload，上传对应的证书配置文件，点击保存，之后可以构建环境选择证书配置文件</div><div class="line">![image](http://opmmnosdy.bkt.clouddn.com/Jenkins13.png)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">- 选择Mobile Provisioning Profiles（证书配置文件）- Provisioning Profile选择项目的企业版生产证书,点击应用，其它选项默认不选</div><div class="line">![image](http://opmmnosdy.bkt.clouddn.com/Jenkins08.png)</div><div class="line"></div><div class="line">- 此时可以在项目页面，点击立即构建，正常情况下是成功构建的，如下图蓝色下图标代表构建成功，点击蓝色小图标后的时间进入页面，点击Console Output查看输出日志如下图，若构建失败请参看文章末尾常见问题或者百度Google</div><div class="line"></div><div class="line"> ![image](http://opmmnosdy.bkt.clouddn.com/Jenkins09.png)</div><div class="line"> ***</div><div class="line"> ![image](http://opmmnosdy.bkt.clouddn.com/Jenkins10.png)</div><div class="line"></div><div class="line">- 构建 首先需要准备一个ExportOptions.plist的文件，可以用Xcode配置对应的证书先打个ipa包在输出的文件夹中将ExportOptions.plist拷贝出来，放到项目的文件夹下，更新到代码仓库，因为Xcode 9 默认不允许访问钥匙串的内容，必须要设置 allowProvisioningUpdates，但是由于 Xcode integration 插件封闭，并不能对其进行修改加上这个属性，而且xcode构建容易出各种坑，所以使用 Shell 脚本代替插件，选择增加构建步骤-Execute shell，脚本如下(建议脚本中的文件或文件夹名先统一用工程名（Mac用户名除外），以免踩各种坑，待构建成功后再去自己定义想要的名字)，复制脚本修改对应自己工程的信息，如果是 project 的项目，那就将下面脚本第一段的 -workspace 工程名.xcodeproj 修改为 -project 工程名.xcworkspace 即可。</div></pre></td></tr></table></figure></p>
+<p> xcodebuild -archivePath “/Users/MAC用户名/.jenkins/workspace/jenkins构建项目时的项目名/build/Debug-iphoneos/工程名.xcarchive” -workspace 工程名.xcworkspace -sdk iphoneos -scheme “工程名” -configuration “Debug” archive</p>
+<p> xcodebuild -exportArchive -archivePath “/Users/MAC用户名/.jenkins/workspace/jenkins构建项目时的项目名/build/Debug-iphoneos/工程名.xcarchive” -exportPath “/Users/MAC用户名/.jenkins/workspace/jenkins构建项目时的项目名/build/ipa包文件夹（可以自定义名）名称” -exportOptionsPlist ‘/Users/MAC用户名/.jenkins/workspace/jenkins构建项目时的项目名/ExportOptions.plist’ -allowProvisioningUpdates</p>
+<p> #蒲公英上的User Key<br>uKey=”545c527xxxxx49abb3a8b8”</p>
+<p>#蒲公英上的API Key<br>apiKey=”19fxxxxxxda919adfe8”</p>
+<p>#要上传的ipa文件路径<br>IPA_PATH=”${WORKSPACE}/build/ipa包/xxxx.ipa”</p>
+<p>#安装密码<br>PASSWORD=”xxx”</p>
+<p> #执行上传至蒲公英的命令<br>echo “++++++++++++++upload+++++++++++++”<br>curl -F “file=@${IPA_PATH}” -F “uKey=${uKey}” -F “_api_key=${apiKey}” -F “password=${PASSWORD}” <a href="http://www.pgyer.com/apiv1/app/upload" target="_blank" rel="external">http://www.pgyer.com/apiv1/app/upload</a><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">这是构建生成.xcarchive文件的存放路径</div></pre></td></tr></table></figure></p>
+<p> xcodebuild -archivePath “/Users/MAC用户名/.jenkins/workspace/jenkins构建项目时的项目名/build/Debug-iphoneos/工程名.xcarchive”<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">这是存放.xcarchive文件的路径，必须与上面路径保持一致</div></pre></td></tr></table></figure></p>
+<p> xcodebuild -exportArchive -archivePath “/Users/MAC用户名/.jenkins/workspace/jenkins构建项目时的项目名/build/Debug-iphoneos/工程名.xcarchive”<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">这是生成.ipa文件的存放路径</div></pre></td></tr></table></figure></p>
+<p> -exportPath “/Users/MAC用户名/.jenkins/workspace/jenkins构建项目时的项目名/build/ipa包文件夹（可以自定义名）名称”<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">这是jenkins构建时拉下代码的文件夹中ExportOptions.plist所在的路径</div></pre></td></tr></table></figure></p>
+<p> -exportOptionsPlist ‘/Users/MAC用户名/.jenkins/workspace/jenkins构建项目时的项目名/ExportOptions.plist’ -allowProvisioningUpdates<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line"> 注意：在上传蒲公英的脚本中ipa的路径要到.ipa文件为止</div><div class="line"> </div><div class="line">- 至此可点击立即构建，构建成功后将会在finder-Macintosh HD -用户-用户-.jenkins(隐藏文件)-workspace-、、、如下图文件中看到生成的.ipa  .xcarchive 工程代码等文件</div><div class="line">![image](http://opmmnosdy.bkt.clouddn.com/Jenkins11.png)</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">#### 项目构建的常见问题</div><div class="line">- 缺少ExportOptions.plist，解决办法：用xcode打包生成ExportOptions.plist文件 放在工程文件下</div></pre></td></tr></table></figure></p>
+<p>Error Domain=NSCocoaErrorDomain Code=260 “The file “ExportOptions.plist” couldn’t be opened because there is no such file.” UserInfo={NSFilePath=/Users/sky/.jenkins/workspace/xxx/build/ExportOptions.plist, NSUnderlyingError=0x7fd9d5776430 {Error Domain=NSPOSIXErrorDomain Code=2 “No such file  or directory”}}<br>```</p>
+<ul>
+<li><p>证书配置的不对<br>error: exportArchive: “xxx.app” requires a provisioning profile with the Push Notifications feature.</p>
+</li>
+<li><p>sheme不对<br>xcodebuild: error: If you specify a workspace then you must also specify a scheme.  Use -list to see the schemes in this workspace.</p>
+</li>
+</ul>
 
       
     </div>
@@ -503,8 +527,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/15/2017-09-15swift01/" rel="next" title="swift学习01">
-                <i class="fa fa-chevron-left"></i> swift学习01
+              <a href="/2017/10/23/2017-10-23webview/" rel="next" title="iOS--webview使用">
+                <i class="fa fa-chevron-left"></i> iOS--webview使用
               </a>
             
           </div>
@@ -512,10 +536,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/10/2018-01-10jenkins/" rel="prev" title="jenkins实现CI持续化集成iOS App">
-                jenkins实现CI持续化集成iOS App <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -696,7 +716,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#webview内容获取"><span class="nav-number">1.</span> <span class="nav-text">webview内容获取</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#首先要准备的case"><span class="nav-number">1.</span> <span class="nav-text">首先要准备的case</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装jenkins"><span class="nav-number">2.</span> <span class="nav-text">安装jenkins</span></a></li></ol></div>
             
 
           </div>
