@@ -92,18 +92,18 @@
 
 
 
-<meta name="description" content="站在996的风口浪尖上，百度，google,查阅各种资料博客后，历经40次的构建终于用jenkins在MAC上实现了iOS App的CI（持续集成）一键上传App到蒲公英，网上资料很多老旧或者不够完善或者坑比较多，于是乎本人踩了一个又一个的坑才爬了起来，于是乎今天就贴个比较完善的，让大家尽量少踩坑，尽快实现一个CI（持续集成）的Jenkins部署，如果觉得本文不错别忘记点赞哟！支持本宅男写出更好的">
+<meta name="description" content="站在996的风口浪尖上，百度，google,查阅各种资料博客后，历经40次的构建终于用jenkins在MAC上实现了iOS App的CI（持续集成）一键上传App到蒲公英">
 <meta name="keywords" content="iOS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jenkins实现CI持续化集成iOS App">
 <meta property="og:url" content="http://rocksky.me/2018/01/10/2018-01-10Jenkins/index.html">
 <meta property="og:site_name" content="我是一颗小小的石头">
-<meta property="og:description" content="站在996的风口浪尖上，百度，google,查阅各种资料博客后，历经40次的构建终于用jenkins在MAC上实现了iOS App的CI（持续集成）一键上传App到蒲公英，网上资料很多老旧或者不够完善或者坑比较多，于是乎本人踩了一个又一个的坑才爬了起来，于是乎今天就贴个比较完善的，让大家尽量少踩坑，尽快实现一个CI（持续集成）的Jenkins部署，如果觉得本文不错别忘记点赞哟！支持本宅男写出更好的">
+<meta property="og:description" content="站在996的风口浪尖上，百度，google,查阅各种资料博客后，历经40次的构建终于用jenkins在MAC上实现了iOS App的CI（持续集成）一键上传App到蒲公英">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-10T06:53:49.000Z">
+<meta property="og:updated_time" content="2018-01-19T08:43:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jenkins实现CI持续化集成iOS App">
-<meta name="twitter:description" content="站在996的风口浪尖上，百度，google,查阅各种资料博客后，历经40次的构建终于用jenkins在MAC上实现了iOS App的CI（持续集成）一键上传App到蒲公英，网上资料很多老旧或者不够完善或者坑比较多，于是乎本人踩了一个又一个的坑才爬了起来，于是乎今天就贴个比较完善的，让大家尽量少踩坑，尽快实现一个CI（持续集成）的Jenkins部署，如果觉得本文不错别忘记点赞哟！支持本宅男写出更好的">
+<meta name="twitter:description" content="站在996的风口浪尖上，百度，google,查阅各种资料博客后，历经40次的构建终于用jenkins在MAC上实现了iOS App的CI（持续集成）一键上传App到蒲公英">
 
 
 
@@ -442,7 +442,7 @@
       
 
       
-        <p>站在996的风口浪尖上，百度，google,查阅各种资料博客后，历经40次的构建终于用jenkins在MAC上实现了iOS App的CI（持续集成）一键上传App到蒲公英，网上资料很多老旧或者不够完善或者坑比较多，于是乎本人踩了一个又一个的坑才爬了起来，于是乎今天就贴个比较完善的，让大家尽量少踩坑，尽快实现一个CI（持续集成）的Jenkins部署，如果觉得本文不错别忘记点赞哟！支持本宅男写出更好的文章记得打赏点零花钱哟！<br><a id="more"></a></p>
+        <p>站在996的风口浪尖上，百度，google,查阅各种资料博客后，历经40次的构建终于用jenkins在MAC上实现了iOS App的CI（持续集成）一键上传App到蒲公英<br><a id="more"></a><br>，网上资料很多老旧或者不够完善或者坑比较多，于是乎本人踩了一个又一个的坑才爬了起来，于是乎今天就贴个比较完善的，让大家尽量少踩坑，尽快实现一个CI（持续集成）的Jenkins部署，如果觉得本文不错别忘记点赞哟！支持本宅男写出更好的文章记得打赏点零花钱哟！</p>
 <h4 id="首先要准备的case"><a href="#首先要准备的case" class="headerlink" title="首先要准备的case"></a>首先要准备的case</h4><ul>
 <li><p>一台MAC，原因是iOS打包无法在Linux上进行，因为Jenkins的Xcode插件需要调用Xcode，Xcode只能在OSX系统下安装，如果非要在Linux上实现，可以建立节点，过程过于繁琐，此处忽略  </p>
 </li>
